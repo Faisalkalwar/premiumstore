@@ -1,0 +1,6 @@
+{
+  "name": "PREMIUM STORE",
+  "description": "Streetwear fashion e-commerce storefront featuring editorial streetwear collections, interactive product cards, category discovery, search UI, cart drawer, and wishlist.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

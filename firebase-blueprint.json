@@ -1,0 +1,154 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profile",
+      "description": "User profile data and settings",
+      "properties": {
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "admin"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "email"]
+    },
+    "products": {
+      "title": "Product Catalog",
+      "description": "Fashion catalog items",
+      "properties": {
+        "productId": { "type": "string" },
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "sku": { "type": "string" },
+        "description": { "type": "string" },
+        "categoryId": { "type": "string" },
+        "collectionIds": { "type": "array", "items": { "type": "string" } },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "price": { "type": "number" },
+        "salePrice": { "type": "number" },
+        "sizes": { "type": "array", "items": { "type": "string" } },
+        "colors": { "type": "array", "items": { "type": "object" } },
+        "variants": { "type": "array", "items": { "type": "object" } },
+        "stock": { "type": "number" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "featured": { "type": "boolean" },
+        "newArrival": { "type": "boolean" },
+        "bestSeller": { "type": "boolean" },
+        "status": { "type": "string", "enum": ["active", "draft", "archived"] },
+        "seoTitle": { "type": "string" },
+        "seoDescription": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["productId", "name", "slug", "price", "categoryId", "images"]
+    },
+    "categories": {
+      "title": "Product Categories",
+      "description": "Fashion product categories",
+      "properties": {
+        "categoryId": { "type": "string" },
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "description": { "type": "string" },
+        "image": { "type": "string" },
+        "active": { "type": "boolean" },
+        "sortOrder": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["categoryId", "name", "slug"]
+    },
+    "collections": {
+      "title": "Fashion Collections",
+      "description": "Curated streetwear collections",
+      "properties": {
+        "collectionId": { "type": "string" },
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "description": { "type": "string" },
+        "image": { "type": "string" },
+        "active": { "type": "boolean" },
+        "sortOrder": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["collectionId", "name", "slug"]
+    },
+    "orders": {
+      "title": "Customer Orders",
+      "description": "Placed store orders",
+      "properties": {
+        "orderId": { "type": "string" },
+        "userId": { "type": "string" },
+        "items": { "type": "array", "items": { "type": "object" } },
+        "total": { "type": "number" },
+        "status": { "type": "string" },
+        "shippingAddress": { "type": "object" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["orderId", "total", "items"]
+    },
+    "wishlists": {
+      "title": "User Wishlists",
+      "description": "Saved product wishlists",
+      "properties": {
+        "wishlistId": { "type": "string" },
+        "userId": { "type": "string" },
+        "productIds": { "type": "array", "items": { "type": "string" } },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["wishlistId"]
+    },
+    "carts": {
+      "title": "User Carts",
+      "description": "Shopping carts",
+      "properties": {
+        "cartId": { "type": "string" },
+        "userId": { "type": "string" },
+        "items": { "type": "array", "items": { "type": "object" } },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["cartId"]
+    },
+    "coupons": {
+      "title": "Discount Coupons",
+      "description": "Promotional coupon codes",
+      "properties": {
+        "couponId": { "type": "string" },
+        "code": { "type": "string" },
+        "discountPercent": { "type": "number" },
+        "active": { "type": "boolean" },
+        "expiryDate": { "type": "string" }
+      },
+      "required": ["couponId", "code", "discountPercent"]
+    },
+    "reviews": {
+      "title": "Product Reviews",
+      "description": "Customer ratings and reviews",
+      "properties": {
+        "reviewId": { "type": "string" },
+        "productId": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["reviewId", "productId", "rating"]
+    },
+    "siteSettings": {
+      "title": "Site Settings",
+      "description": "Global storefront configurations",
+      "properties": {
+        "settingId": { "type": "string" },
+        "bannerText": { "type": "string" },
+        "announcementActive": { "type": "boolean" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["settingId"]
+    }
+  }
+}
